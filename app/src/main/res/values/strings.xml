@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Peluquería</string>
+    <string name="not_log_in">No se pudo iniciar sesión</string>
+    <string name="log_out">Log Out</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">No se pudo cerrar sesión</string>
+    <string name="not_revoke">No se pudo revocar el acceso</string>
+    <string name="not_firebase_auth">No se pudo autenticar con Firebase</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="administrador">Ets l\'administrador</string>
+    <string name="usuari">Usuari</string>
+    <string name="delete">Elimina compte</string>
+    <string name="update">Canvia password</string>
+    <string name="mod_del">Modifica o elimina usuari</string>
+    <string name="canvi_contrasenya">Escriu la nova contrasenya</string>
+    <string name="torna_pulsar">Pulsa CONFIRMAR per actualitzar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="antiga_contrasenya">Antiga Contrasenya</string>
+    <string name="old">Escriu la contrasenya antiga</string>
+    <string name="productes">Productes</string>
+    <string name="preu">Preu</string>
+    <string name="preuTotal">El preu total dels productes escollits son: </string>
+    <string name="enrera">Tornar enrera</string>
+</resources>
