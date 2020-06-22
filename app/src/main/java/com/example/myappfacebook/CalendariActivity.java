@@ -78,7 +78,7 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
 
             @Override
             public void onEntryClick(View view,int position) {
-                Log.d("REsultat nou ",String.valueOf(position));
+                //Log.d("REsultat nou ",String.valueOf(position));
             }
         });
         rvhorari.setAdapter(adapter);
