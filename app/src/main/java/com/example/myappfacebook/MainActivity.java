@@ -4,7 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -52,8 +55,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("Escogeix opció:");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        progressDialog=new ProgressDialog(this);
         photoImageView = (ImageView) findViewById(R.id.photoImageView);
         nameTextView = (TextView) findViewById(R.id.nameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
@@ -76,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Btn_Actualitza.setOnClickListener(this);
         Btn_Confirmar.setOnClickListener(this);
         Btn_Productes.setOnClickListener(this);
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -178,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         }
     }
 
+
     private void visibilitat(){
         old_Pass.setVisibility(View.VISIBLE);
         old_Pass.requestFocus(); //Asegurar que editText tiene focus
@@ -243,5 +247,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         });
         progressDialog.dismiss();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        firebaseAuth.signOut();
+        return true;
     }
 }

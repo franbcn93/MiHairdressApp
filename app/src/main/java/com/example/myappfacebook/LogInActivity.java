@@ -202,7 +202,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         progressDialog.setMessage("Realitzant login...");
         progressDialog.show();
 
-
         //Se podría mejorar el FirebaseA-----
         firebaseAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -213,20 +212,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                         }else {
                             Toast.makeText(getApplicationContext(),"Email o password incorrectes", Toast.LENGTH_LONG).show();
                         }
-                        /*if (!task.isSuccessful() || !email.equals("franciscoparisalbero@gmail.com")){
-                            try {
-                                throw task.getException();
-                            }
-                            catch (FirebaseAuthUserCollisionException existEmail){
-                                Toast.makeText(getApplicationContext(),"onComplete: exist_email", Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "onComplete: exist_email");
-                            }
-                            catch (Exception e)
-                            {
-                                Toast.makeText(getApplicationContext(),"onComplete: "+e.getMessage(), Toast.LENGTH_LONG).show();
-                            }
-
-                        }*/
                         progressDialog.dismiss();
                     }
                 });

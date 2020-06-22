@@ -7,224 +7,285 @@
     tools:context=".ProductesActivity">
 
     <TextView
-        android:id="@+id/textProducte5"
-        android:layout_width="99dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:textAlignment="center"
-        android:textStyle="bold"
+        android:id="@+id/textTempsTotal"
+        android:layout_width="397dp"
+        android:layout_height="27dp"
+        android:text="@string/TempsTotal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284"
-        tools:text="Producte" />
+        app:layout_constraintVertical_bias="0.937" />
 
     <TextView
-        android:id="@+id/textPreu5"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte11"
+        android:layout_width="363dp"
         android:layout_height="22dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284"
-        tools:text="Preu" />
+        app:layout_constraintVertical_bias="0.66"
+        tools:text="Producte" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/chB11"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.659" />
+
+    <TextView
+        android:id="@+id/textProducte13"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.768"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB13"
         android:layout_width="32dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toEndOf="@+id/textProducte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.764" />
 
     <TextView
-        android:id="@+id/textProducte3"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte14"
+        android:layout_width="363dp"
         android:layout_height="22dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184"
+        app:layout_constraintVertical_bias="0.824"
         tools:text="Producte" />
 
-    <TextView
-        android:id="@+id/textPreu3"
-        android:layout_width="99dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184"
-        tools:text="Preu" />
-
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/chB14"
         android:layout_width="32dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toEndOf="@+id/textProducte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <TextView
-        android:id="@+id/textPreu4"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte12"
+        android:layout_width="363dp"
         android:layout_height="22dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234"
-        tools:text="Preu" />
-
-    <TextView
-        android:id="@+id/textProducte4"
-        android:layout_width="99dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="10dp"
-        android:background="#FFFFFF"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234"
+        app:layout_constraintVertical_bias="0.713"
         tools:text="Producte" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/chB12"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
+
+    <CheckBox
+        android:id="@+id/chB6"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/textProducte8"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB8"
         android:layout_width="32dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toEndOf="@+id/textProducte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.475" />
 
     <TextView
-        android:id="@+id/textProducte2"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte7"
+        android:layout_width="363dp"
         android:layout_height="22dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135"
+        app:layout_constraintVertical_bias="0.425"
         tools:text="Producte" />
 
+    <CheckBox
+        android:id="@+id/chB7"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423" />
+
     <TextView
-        android:id="@+id/textPreu2"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte9"
+        android:layout_width="363dp"
         android:layout_height="22dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135"
-        tools:text="Preu" />
+        app:layout_constraintVertical_bias="0.541"
+        tools:text="Producte" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/chB9"
         android:layout_width="32dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toEndOf="@+id/textProducte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.534" />
 
     <TextView
-        android:id="@+id/textProducte1"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte6"
+        android:layout_width="363dp"
         android:layout_height="22dp"
-        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
+        app:layout_constraintVertical_bias="0.361"
         tools:text="Producte" />
 
     <TextView
-        android:id="@+id/textPreu1"
-        android:layout_width="99dp"
+        android:id="@+id/textProducte10"
+        android:layout_width="363dp"
         android:layout_height="22dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="inherit"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
-        tools:text="Preu" />
+        app:layout_constraintVertical_bias="0.596"
+        tools:text="Producte" />
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/chB10"
         android:layout_width="32dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toEndOf="@+id/textProducte"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintVertical_bias="0.595" />
+
+    <TextView
+        android:id="@+id/textTemps"
+        android:layout_width="99dp"
+        android:layout_height="22dp"
+        android:background="#4BBCBC"
+        android:text="@string/tempsEspera"
+        android:textAlignment="center"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        tools:text="@string/tempsEspera" />
+
+    <CheckBox
+        android:id="@+id/chB1"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/textPreu"
@@ -233,33 +294,157 @@
         android:background="#4BBCBC"
         android:text="@string/preu"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039"
+        app:layout_constraintVertical_bias="0.022"
         tools:text="@string/preu" />
+
+    <TextView
+        android:id="@+id/textProducte2"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB2"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <TextView
+        android:id="@+id/textProducte3"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB3"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <TextView
+        android:id="@+id/textProducte4"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/chB4"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.241"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB4"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/textProducte5"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291"
+        tools:text="Producte" />
+
+    <CheckBox
+        android:id="@+id/chB5"
+        android:layout_width="32dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291" />
+
+    <TextView
+        android:id="@+id/textProducte1"
+        android:layout_width="363dp"
+        android:layout_height="22dp"
+        android:background="#FFFFFF"
+        android:textAlignment="inherit"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.074"
+        tools:text="Producte" />
 
     <TextView
         android:id="@+id/textProducte"
         android:layout_width="99dp"
         android:layout_height="22dp"
+        android:layout_marginStart="6dp"
         android:background="#4BBCBC"
-        android:paddingEnd="20dp"
-        android:text="@string/productes"
+        android:text="@string/pr_dona"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        tools:text="@string/productes" />
+        app:layout_constraintVertical_bias="0.022"
+        tools:text="@string/pr_dona" />
 
     <TextView
         android:id="@+id/textTotal"
@@ -268,21 +453,21 @@
         android:text="@string/preuTotal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintVertical_bias="0.884" />
 
     <Button
-        android:id="@+id/idBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enrera"
+        android:id="@+id/bnt_ok"
+        android:layout_width="400dp"
+        android:layout_height="28dp"
+        android:background="@drawable/button_rounded"
+        android:text="@string/contratar_servei"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

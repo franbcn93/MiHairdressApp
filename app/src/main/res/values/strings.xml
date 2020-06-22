@@ -18,8 +18,17 @@
     <string name="confirmar">Confirmar</string>
     <string name="antiga_contrasenya">Antiga Contrasenya</string>
     <string name="old">Escriu la contrasenya antiga</string>
-    <string name="productes">Productes</string>
+    <string name="pr_dona">Productes Dona</string>
+    <string name="pr_home">Productes Home</string>
     <string name="preu">Preu</string>
-    <string name="preuTotal">El preu total dels productes escollits son: </string>
+    <string name="preuTotal">El <strong>preu</strong> total dels productes escollits son: </string>
     <string name="enrera">Tornar enrera</string>
+    <string name="tempsEspera">Temps empleat</string>
+    <string name="tempsTotal">El <strong>temps</strong> total dels productes escollits son: </string>
+    <string name="contratar_servei">Contratar servei</string>
+    <string name="TempsTotal">El <strong>temps</strong> estimat que trigaran sera de: </string>
+    <string name="contractar">Reserva cita</string>
+    <string name="Horari">Horari</string>
+    <string name="Data">Escogeix una data, data actual per defecte</string>
+    <string name="Reserva">Reservar data</string>
 </resources>
