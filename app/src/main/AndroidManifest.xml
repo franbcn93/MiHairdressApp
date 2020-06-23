@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reserva"></activity>
-        <activity android:name=".CalendariActivity" />
-        <activity android:name=".ProductesActivity" />
-        <activity android:name=".Administrador" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ReservaHora"></activity>
+        <activity android:name=".EmptyExample" />
         <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Administrador" />
+        <activity android:name=".ProductesActivity" />
+        <activity android:name=".CalendariActivity" />
+        <activity android:name=".Reserva" />
     </application>
 
 </manifest>

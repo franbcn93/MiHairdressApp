@@ -36,8 +36,10 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendari);
+        //Li posem un titol i establim que podem tornat enrera
         getSupportActionBar().setTitle("Escogeix cita:");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //variables
         temps=(TextView)findViewById(R.id.textTemps);
         solucio=(TextView)findViewById(R.id.textDate);
         calendari=(CalendarView)findViewById(R.id.calendarView);
@@ -64,18 +66,15 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
 
         mBundle.putString("tempsEmpleat", tempsEmpleat);
         mBundle.putString("preuProductes", preuProductes);
-
-
+        //Donem resposta i establim la variable temps
         temps.setText("El preu dels productes son "+ preuProductes + " € i el temps empleat son " +
                 tempsEmpleat + " minuts." + " i l'hora escollida es: " + res);
 
         rvhorari = (RecyclerView) findViewById(R.id.rv_horari);
-
         glm = new GridLayoutManager(this, 3);
         rvhorari.setLayoutManager(glm);
         adapter = new HoraAdapter(dataSet());
         adapter.setOnEntryClickListener(new HoraAdapter.OnEntryClickListener() {
-
             @Override
             public void onEntryClick(View view,int position) {
                 //Log.d("REsultat nou ",String.valueOf(position));
@@ -84,14 +83,6 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
         rvhorari.setAdapter(adapter);
         reserva=(Button)findViewById(R.id.btnReserva);
         reserva.setOnClickListener(this);
-
-
-//        if(adapter.horaInici=="Horari 9:20"){
-//            Log.d("Altre", adapter.horaInici);
-//        }
-//        if(res=="9:10"){
-//            Log.d("Hola ", res);
-//        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -110,7 +101,7 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
                 inici = 15;
             }
             for (int j = 0; j < 6; j++) {
-                data.add(new Hora("Horari " + inici + ":" + j + "0", "Contractar " + i+1 ));
+                data.add(new Hora("Horari " + inici + ":" + j + "0", "Contractar"));
             }
             inici++;
         }
