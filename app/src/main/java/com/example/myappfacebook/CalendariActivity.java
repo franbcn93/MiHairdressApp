@@ -36,7 +36,7 @@ public class CalendariActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendari);
-        //Li posem un titol i establim que podem tornat enrera
+        //Li posem un titol i establim que podem tornat enreraa
         getSupportActionBar().setTitle("Escogeix cita:");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //variables
