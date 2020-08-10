@@ -41,7 +41,7 @@ public class RecyclerTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_time);
-        //Titol de l'activitat
+        //Titol de l'activitatt
         getSupportActionBar().setTitle("I ara l'hora que vols reservar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Informació del activity anterior
