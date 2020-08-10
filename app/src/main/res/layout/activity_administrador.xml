@@ -4,17 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D1EFEE"
+    android:textAlignment="center"
     tools:context=".Administrador">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="334dp"
-        android:layout_height="49dp"
-        android:text="@string/administrador"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <CalendarView
+        android:id="@+id/calendarAdmin"
+        android:layout_width="372dp"
+        android:layout_height="305dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_inf_admin"
+        android:layout_width="400dp"
+        android:layout_height="25dp"
+        android:hint="Marca el dia"
+        android:text="Marca el dia, les hores reservades i accepta"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarAdmin"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_horari"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_inf_admin"
+        app:layout_constraintVertical_bias="1.0">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

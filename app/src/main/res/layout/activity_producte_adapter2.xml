@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1EFEE">
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="78dp"
+        android:background="@drawable/button_rectangle_rounded"
+        android:text="Cancelar" />
+
+    <Button
+        android:id="@+id/btnAccept"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/button_rectangle"
+        android:text="Contractar Productes" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAnimals"
+        android:layout_width="match_parent"
+        android:layout_height="745dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="131dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="452dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAccept"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="736dp"
+        android:text="Desplaça per veure tots els productes"
+        android:textAlignment="center" />
+
+</RelativeLayout>

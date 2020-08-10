@@ -4,9 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
@@ -35,30 +33,31 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private String TAG = "Error: " ;
     private String novaContr;
-    private ImageView photoImageView;
     private TextView nameTextView, textInformatiu;
     private TextView emailTextView;
     private TextView idTextView;
     private GoogleApiClient googleApiClient;
     private Button Btn_Elimina, Btn_Actualitza, Btn_Confirmar, Btn_Productes;
     private EditText canvi_Contr, old_Pass;
+    private ImageView imgLogo;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private FirebaseUser firebaseUser;
     private ProgressDialog progressDialog;
+    private Toast toast;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Escogeix opció:");
+        setContentView(R.layout.activity_main_);
+        getSupportActionBar().setTitle("Veure els nostres productes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        photoImageView = (ImageView) findViewById(R.id.photoImageView);
         nameTextView = (TextView) findViewById(R.id.nameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
         idTextView = (TextView) findViewById(R.id.idTextView);
@@ -81,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Btn_Confirmar.setOnClickListener(this);
         Btn_Productes.setOnClickListener(this);
 
+        imgLogo=(ImageView)findViewById(R.id.imgLogo);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     nameTextView.setText(user.getDisplayName());
                     emailTextView.setText(user.getEmail());
                     idTextView.setText(user.getUid());
-                    Glide.with(getApplicationContext()).load(user.getPhotoUrl()).into(photoImageView);
                 } else {
                     goLogInScreen();
                 }
@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         nameTextView.setText(user.getDisplayName());
         emailTextView.setText(user.getEmail());
         idTextView.setText(user.getUid());
-        Glide.with(this).load(user.getPhotoUrl()).into(photoImageView);
     }
 
     @Override
@@ -174,15 +173,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 });
                 break;
             case R.id.btn_Productes:
-                Intent intent = new Intent(this, ProductesActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent i = getIntent();
+                String telefon = i.getStringExtra("telefon");
+                Intent intent = new Intent(this, ProducteAdapter2.class);
+                String correuClient = emailTextView.getText().toString();
+                intent.putExtra("telefon", telefon);
+                intent.putExtra("correu",correuClient);
                 startActivity(intent);
                 break;
+
         }
     }
 
-
     private void visibilitat(){
+        imgLogo.setVisibility(View.INVISIBLE);
         old_Pass.setVisibility(View.VISIBLE);
         old_Pass.requestFocus(); //Asegurar que editText tiene focus
 
@@ -212,14 +216,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),"Password Actualitzat", Toast.LENGTH_LONG).show();
+                                    toast=Toast.makeText(getApplicationContext(),"Password Actualitzat", Toast.LENGTH_SHORT);
+                                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                    toast.show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(),"Error, password no actualitzat", Toast.LENGTH_LONG).show();
+                                    toast=Toast.makeText(getApplicationContext(),"Error, password no actualitzat", Toast.LENGTH_SHORT);
+                                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                    toast.show();
                                 }
                             }
                         });
                     } else {
-                        Toast.makeText(getApplicationContext(),"Error autentificació", Toast.LENGTH_LONG).show();
+                        toast=Toast.makeText(getApplicationContext(),"Error d'/autentificació", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                        toast.show();
                     }
                     progressDialog.dismiss();
                 }
@@ -240,9 +250,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"Usuari eliminat", Toast.LENGTH_LONG).show();
+                    toast=Toast.makeText(getApplicationContext(),"Usuari eliminat", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                    toast.show();
                 }else {
-                    Toast.makeText(getApplicationContext(),"Error al eliminar l'usuari", Toast.LENGTH_LONG).show();
+                    toast=Toast.makeText(getApplicationContext(),"Error al eliminar l'usuari", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                    toast.show();
                 }
             }
         });

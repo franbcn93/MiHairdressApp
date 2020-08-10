@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Peluquería</string>
+    <string name="app_name">Perruquería Evolution</string>
     <string name="not_log_in">No se pudo iniciar sesión</string>
     <string name="log_out">Log Out</string>
     <string name="revoke">Revoke</string>
     <string name="not_close_session">No se pudo cerrar sesión</string>
     <string name="not_revoke">No se pudo revocar el acceso</string>
-    <string name="not_firebase_auth">No se pudo autenticar con Firebase</string>
+    <string name="not_firebase_auth">No s\'ha pogut autenticar amb Firebase</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="administrador">Ets l\'administrador</string>
@@ -29,6 +29,29 @@
     <string name="TempsTotal">El <strong>temps</strong> estimat que trigaran sera de: </string>
     <string name="contractar">Reserva cita</string>
     <string name="Horari">Horari</string>
-    <string name="Data">Escogeix una data, data actual per defecte</string>
     <string name="Reserva">Reservar data</string>
+    //
+    <string name="horari">"Horari \u0020"</string>
+    <string name="info_calendar">Escogeix el dia que vols anar</string>
+    <string name="info_recycler">Escogeix l\'hora d\'inici</string>
+    <string name="Data">Data escollida :</string>
+    <string name="horariactual">Horari Actual</string>
+    <string name="dataAvui">El dia d\'avui es: \u0020 </string>
+    <string name="dataMarc">La data marcada es:\u0020</string>
+    <string name="descans">De 13 a 15 DESCANS</string>
+    <string name="activityCalendari">Escogeix el dia per la cita:</string>
+    <string name="acceptar">Accepta si es correcte</string>
+    <string name="error_dia">Has de escollir un dia per la cita</string>
+    <string name="inici_contracte">Recorda, l\'hora final del teu contracte, no pot trepitjar altra que ja estigui reservada.</string>
+    <string name="info_final">Ultim pas:</string>
+    <string name="inf_productes">Escogeix els productes que vols que et facin</string>
+    <string name="info_recycler_productes">Taula de productes</string>
+    <string name="telefon">Telefon</string>
+    <string name="home">Home</string>
+    <string name="dona">Dona</string>
+    <string name="sexe">Sexe</string>
+    <string name="registre">Registre</string>
+    <string name="login">Login</string>
+    <string name="productes_perruqueria">Productes perruqueria</string>
+    <string name="accepta">Accepta</string>
 </resources>

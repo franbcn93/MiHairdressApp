@@ -4,13 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 
@@ -31,6 +36,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LogInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
@@ -46,25 +56,46 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
     private ProgressBar progressBar;
 
-    private EditText Txt_User, Txt_Pass;
+    private EditText Txt_User, Txt_Pass, Txt_Tel;
+    private TextView Txt_sexe;
+    private TextView Txt_newPassw;
     private Button Btn_Reg, Btn_Login;
+    private RadioButton Btn_home, Btn_dona;
     private ProgressDialog progressDialog;
+    private RadioGroup radioGroup;
+    private DatabaseReference mRootRef;
+    private Client dades;
+    private Toast toast;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        setContentView(R.layout.activity_log_in_2);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Txt_User = (EditText)findViewById(R.id.email);
-        Txt_Pass = (EditText)findViewById(R.id.password);
-        Btn_Reg = (Button)findViewById(R.id.register);
-        Btn_Login = (Button)findViewById(R.id.login);
-        progressDialog=new ProgressDialog(this);
-
+        Txt_Pass = (EditText)findViewById(R.id.passwd);
+        Btn_Reg = (Button)findViewById(R.id.btn_register);
         Btn_Reg.setOnClickListener(this);
+        Btn_Login = (Button)findViewById(R.id.btn_login);
         Btn_Login.setOnClickListener(this);
-
-
+        progressDialog=new ProgressDialog(this);
+        Txt_newPassw = (TextView)findViewById(R.id.txt_newPassw);
+        Txt_newPassw.setOnClickListener(this);
+        //Fem la part del Registre
+        Txt_Tel=(EditText)findViewById(R.id.telefon);
+        Txt_Tel.setVisibility(View.INVISIBLE);
+        Txt_sexe=(TextView)findViewById(R.id.txt_sexe);
+        Txt_sexe.setVisibility(View.INVISIBLE);
+        Btn_home=(RadioButton)findViewById(R.id.rBtnHome);
+        Btn_home.setVisibility(View.INVISIBLE);
+        Btn_dona=(RadioButton)findViewById(R.id.rBtnDona);
+        Btn_dona.setVisibility(View.INVISIBLE);
+        radioGroup=(RadioGroup)findViewById(R.id.radioGroup);
+        //Emmagatzemar dades
+        mRootRef = FirebaseDatabase.getInstance().getReference();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -77,11 +108,8 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 .build();
 
         signInButton = (SignInButton) findViewById(R.id.signInButton);
-
         signInButton.setSize(SignInButton.SIZE_WIDE);
-
         signInButton.setColorScheme(SignInButton.COLOR_DARK);
-
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +117,6 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 startActivityForResult(intent, SIGN_IN_CODE);
             }
         });
-
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -101,14 +128,12 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 }
             }
         };
-
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         firebaseAuth.addAuthStateListener(firebaseAuthListener);
     }
 
@@ -131,12 +156,13 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
         if (result.isSuccess()) {
             firebaseAuthWithGoogle(result.getSignInAccount());
         } else {
-            Toast.makeText(this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
+            toast=Toast.makeText(getApplicationContext(),"No s'ha pogut iniciar sesió", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+            toast.show();
         }
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) {
-
         progressBar.setVisibility(View.VISIBLE);
         signInButton.setVisibility(View.GONE);
 
@@ -149,7 +175,9 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                 signInButton.setVisibility(View.VISIBLE);
 
                 if (!task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), R.string.not_firebase_auth, Toast.LENGTH_SHORT).show();
+                    toast=Toast.makeText(getApplicationContext(),R.string.not_firebase_auth, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                    toast.show();
                 }
             }
         });
@@ -157,7 +185,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
 
     private void goMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("telefon", Txt_Tel.getText().toString());
         startActivity(intent);
     }
 
@@ -174,60 +202,124 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
     public void onClick(View v) {
         String email = Txt_User.getText().toString().trim();
         String pass = Txt_Pass.getText().toString().trim();
-
+        //Verifiquem si el email o password es buid i li possem un valor qualsevol
+        if(email.matches("")){
+            email="null";
+        }if(pass.matches("")){
+            pass="null";
+        }
+        //
         switch (v.getId()){
-            case R.id.login:
+            case R.id.btn_login:
                 verif_login(email,pass);
                 break;
-            case R.id.register:
-                registraUsuari(email,pass);
+            case R.id.btn_register:
+                registrantDades(email,pass);
+                //registraUsuari(email,pass);
                 break;
             case R.id.elimina:
 
                 break;
             case R.id.actualitza:
-
+                break;
+            case R.id.txt_newPassw:
+                enviaPasswd();
                 break;
         }
+    }
+
+    private void enviaPasswd() {
+        firebaseAuth.setLanguageCode("es");
+        firebaseAuth.sendPasswordResetEmail(Txt_User.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    toast=Toast.makeText(getApplicationContext(),"Se ha enviat un correu per restablir la contrasenya", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                    toast.show();
+                }else {
+                    toast=Toast.makeText(getApplicationContext(),"No s'ha pogut enviar el correu", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                    toast.show();
+                }
+            }
+        });
     }
 
     public void verif_login(final String email,String pass) {
 
         //Usuari Administrador
-        if (email.equals("franciscoparisalbero@gmail.com") && pass.equals("123456")) {
+        if (email.equals("franciscoparisalbero@gmail.com") && pass.equals("q")) {//123456
             Intent intent = new Intent(getApplicationContext(),Administrador.class);
             startActivity(intent);
         }
-
+        //emailOpasswdInc(email, pass);
         progressDialog.setMessage("Realitzant login...");
         progressDialog.show();
-
         //Se podría mejorar el FirebaseA-----
         firebaseAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Email y password correctes", Toast.LENGTH_LONG).show();
+                            toast=Toast.makeText(getApplicationContext(),"Email y password correctes", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                            toast.show();
                         }else {
-                            Toast.makeText(getApplicationContext(),"Email o password incorrectes", Toast.LENGTH_LONG).show();
+                            toast=Toast.makeText(getApplicationContext(),"Email o password incorrectes", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                            toast.show();
                         }
                         progressDialog.dismiss();
                     }
                 });
+
     }
 
 
-    private void registraUsuari(String email,String pass) {
-
+    private void emailOpasswdInc(String email,String pass){
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(getApplicationContext(),"Tens que ingressar un email", Toast.LENGTH_LONG).show();
+            toast=Toast.makeText(getApplicationContext(),"Tens que ingressar un email", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+            toast.show();
             return;
         }
         if(TextUtils.isEmpty(pass)){
-            Toast.makeText(getApplicationContext(),"Tens que ingressar un password", Toast.LENGTH_LONG).show();
+            toast=Toast.makeText(getApplicationContext(),"Tens que ingressar un password", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+            toast.show();
             return;
         }
+    }
+
+    private void registrantDades(String email,String pass){
+        Txt_Tel.setVisibility(View.VISIBLE);
+        Txt_sexe.setVisibility(View.VISIBLE);
+        Btn_home.setVisibility(View.VISIBLE);
+        Btn_dona.setVisibility(View.VISIBLE);
+        String telefon = Txt_Tel.getText().toString();
+        if(telefon.matches("") ){
+            toast=Toast.makeText(getApplicationContext(),"Escriu el teu número de telèfon", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+            toast.show();
+        }else{
+            if(radioGroup.getCheckedRadioButtonId()==-1){
+                toast=Toast.makeText(getApplicationContext(),"Escull el teu génere", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                toast.show();
+            }else {
+                //En el cas que el teu telefon no sigui real...
+                /*if (telefon == null || telefon.length() < 6 || telefon.length() > 13) {
+                    Toast.makeText(getApplicationContext(),"Escriu el teu número de telèfon real", Toast.LENGTH_LONG).show();
+                }*/
+                registraUsuari(email,pass);
+            }
+
+
+        }
+    }
+
+    private void registraUsuari(final String email,String pass) {
         progressDialog.setMessage("Realitzant registre...");
         progressDialog.show();
 
@@ -236,47 +328,66 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"S'ha registrat el email", Toast.LENGTH_LONG).show();
+                            toast=Toast.makeText(getApplicationContext(),"S'ha registrat el email", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                            toast.show();
+                            String genere;
+                            if(Btn_home.isChecked()){
+                                Toast.makeText(getApplicationContext(),"home", Toast.LENGTH_LONG).show();
+                                genere =  "home";
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Dona", Toast.LENGTH_LONG).show();
+                                genere =  "dona";
+                            }
+                            //Emmagatzem les dades a la BBDD
+                            emmagatzemarBBDD(email, Txt_Tel.getText().toString(), genere);
                         }else{
-                            try
-                            {
+                            try{
                                 throw task.getException();
                             }
                             // if user enters wrong email.
                             catch (FirebaseAuthWeakPasswordException weakPassword)
                             {
-                                Toast.makeText(getApplicationContext(),"onComplete: weak_password", Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "onComplete: weak_password");
-
-                                // TODO: take your actions!
+                                toast=Toast.makeText(getApplicationContext(),"Password massa debil", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                toast.show();
                             }
                             // if user enters wrong password.
-                            catch (FirebaseAuthInvalidCredentialsException malformedEmail)
-                            {
-                                Toast.makeText(getApplicationContext(),"onComplete: malformed_email", Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "onComplete: malformed_email");
-
-                                // TODO: Take your action
+                            catch (FirebaseAuthInvalidCredentialsException malformedEmail){
+                                toast=Toast.makeText(getApplicationContext(),"Email mal format", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                toast.show();
                             }
-                            catch (FirebaseAuthUserCollisionException existEmail)
-                            {
-                                Toast.makeText(getApplicationContext(),"onComplete: exist_email", Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "onComplete: exist_email");
-
-                                // TODO: Take your action
+                            catch (FirebaseAuthUserCollisionException existEmail){
+                                toast=Toast.makeText(getApplicationContext(),"Email ja existent", Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                toast.show();
                             }
-                            catch (Exception e)
-                            {
-                                Toast.makeText(getApplicationContext(),"onComplete: "+e.getMessage(), Toast.LENGTH_LONG).show();
-                                Log.d(TAG, "onComplete: " + e.getMessage());
+                            catch (Exception e){
+                                toast=Toast.makeText(getApplicationContext(),"Error: "+e.getMessage(), Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 330);
+                                toast.show();
                             }
-//                            Toast.makeText(getApplicationContext()," No s'ha pogut registrar l'usuari "+email+
-//                                    ", pot ser que ja estigui registrat", Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
                 });
+
     }
 
+    private void emmagatzemarBBDD(String email, String telefon, String genere) {
+        Map<String, Object> dadesUsuari = new HashMap<>();
 
+        dades = new Client(email,telefon,genere);
+        dades.setEmail(email);
+        dades.setTelefon(telefon);
+        dades.setSexe(genere);
+
+        dadesUsuari.put("email", dades.getEmail());
+        dadesUsuari.put("telefon", dades.getTelefon());
+        dadesUsuari.put("sexe", dades.getSexe());
+
+        mRootRef.child("Dades client").push().setValue(dadesUsuari);
+
+    }
 }

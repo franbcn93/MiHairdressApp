@@ -15,29 +15,23 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/photoImageView"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_margin="8dp"
-            android:background="@color/colorAccent" />
-
         <TextView
-            android:id="@+id/nameTextView"
+            android:id="@+id/nameTextView_old"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="20dp"
             android:text="@string/app_name"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/emailTextView"
+            android:id="@+id/emailTextView_old"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/idTextView"
+            android:id="@+id/idTextView_old"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
@@ -45,7 +39,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/old_Password"
+            android:id="@+id/old_Password_old"
             android:layout_width="233dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -54,7 +48,7 @@
             android:textAlignment="center" />
 
         <EditText
-            android:id="@+id/canvi_Passw"
+            android:id="@+id/canvi_Passw_old"
             android:layout_width="232dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,17 +58,17 @@
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/textPulsaBtn"
+            android:id="@+id/textPulsaBtn_old"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:text="@string/torna_pulsar"
             android:textAlignment="center"
             android:textSize="20dp"
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/confirma"
+            android:id="@+id/confirma_old"
             android:layout_width="285dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_rounded"
@@ -95,7 +89,7 @@
                 android:text="@string/pr_home" />
 
             <Button
-                android:id="@+id/btn_Productes"
+                android:id="@+id/btn_Productes_old"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -108,13 +102,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="147dp"
         android:layout_marginTop="80dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/elimina"
+            android:id="@+id/elimina_old"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -122,7 +116,7 @@
             android:text="@string/delete" />
 
         <Button
-            android:id="@+id/actualitza"
+            android:id="@+id/actualitza_old"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_rounded"
@@ -132,10 +126,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button2_old"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded_border"
         android:onClick="logOut"
         android:text="@string/log_out" />
 
@@ -143,6 +138,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded"
         android:onClick="revoke"
         android:text="@string/revoke" />
 

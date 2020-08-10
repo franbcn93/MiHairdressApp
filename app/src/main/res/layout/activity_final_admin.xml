@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmptyExample">
+    android:background="#D1EFEE"
+    tools:context=".FinalActivityAdmin">
 
     <TextView
-        android:id="@+id/textResult"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:id="@+id/textEndAdmin"
+        android:layout_width="284dp"
+        android:layout_height="160dp"
+        android:background="@drawable/text_informacio"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.353" />
 </androidx.constraintlayout.widget.ConstraintLayout>

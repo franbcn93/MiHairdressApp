@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -349,16 +350,24 @@ public class ProductesActivity extends AppCompatActivity implements View.OnClick
                 }
                 break;
             case R.id.bnt_ok:
-                Intent intent = new Intent(this, CalendariActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(this, MainActivity2.class);
+                //Intent intent = new Intent(this, CalendariActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                String mail = firebaseAuth.getCurrentUser().getEmail();
+                String idEncriptat = firebaseAuth.getCurrentUser().getUid();
 
                 Bundle mBundle = new Bundle();
                 mBundle.putString("preu",preuTotal.toString());
                 mBundle.putString("temps",tempsTotal.toString());
+                mBundle.putString("email", mail);
+                mBundle.putString("idEncriptat", idEncriptat);
                 intent.putExtras(mBundle);
                 startActivity(intent);
                 break;
         }
+
         totalText.setText("El preu total dels productes escollits son: " + preuTotal + " €.");
         totalTemps.setText("El temps estimat que trigaran sera de: " + tempsTotal + " minuts.");
 

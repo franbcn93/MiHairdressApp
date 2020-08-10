@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myappfacebook">
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE"/> -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,20 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReservaHora"></activity>
-        <activity android:name=".EmptyExample" />
-        <activity android:name=".LogInActivity">
+        <activity android:name=".FinalActivityAdmin"></activity>
+        <activity android:name=".RecyclerTime2" />
+        <activity android:name=".FinalActivity" /> <!-- <activity android:name=".MainActivity3" /> -->
+        <activity android:name=".ProducteAdapter2" /> <!-- <activity android:name=".Reserva" /> -->
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity" />
+        </activity> <!-- <activity android:name=".ProductesActivityRV" /> -->
+        <activity android:name=".LogInActivity" /> <!-- <activity android:name=".ProductesActivity" /> -->
         <activity android:name=".Administrador" />
-        <activity android:name=".ProductesActivity" />
-        <activity android:name=".CalendariActivity" />
-        <activity android:name=".Reserva" />
+        <activity android:name=".RecyclerTime" />
     </application>
 
 </manifest>

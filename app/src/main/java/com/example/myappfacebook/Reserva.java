@@ -100,28 +100,9 @@ public class Reserva extends AppCompatActivity implements View.OnClickListener {
     }
 
     private  void  consulta(String consulta_ET){
-        // My top posts by number of stars
-        //String myUserId = getUid();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         Query query = databaseReference.child("usuari").orderByChild("data").equalTo(consulta_ET);//"18/6/2020"
-        /*query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-
-                    for (DataSnapshot issue : dataSnapshot.getChildren()) {
-                        Log.e("resultat",String.valueOf(issue));
-                        textConsulta.setText(String.valueOf(issue));
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });*/
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -148,6 +129,7 @@ public class Reserva extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+
     private void dadesUsuari(String dataReserva,String preuProductes,String tempsEmpleat) {
         Map<String, Object> dadesUsuari = new HashMap<>();
         dadesUsuari.put("data", dataReserva);
@@ -157,11 +139,11 @@ public class Reserva extends AppCompatActivity implements View.OnClickListener {
         mRootRef.child("usuari").push().setValue(dadesUsuari);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    /*public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), CalendariActivity.class);
         startActivityForResult(myIntent, 0);
         return true;
-    }
+    }*/
 
     @Override
     public void onClick(View v) {

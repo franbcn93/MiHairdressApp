@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1EFEE"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/canvi_Passw"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
+        android:ems="10"
+        android:hint="@string/canvi_contrasenya"
+        android:inputType="none|textPersonName|textEmailAddress"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/old_Password"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/app_name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+    <EditText
+        android:id="@+id/old_Password"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/old"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTextView" />
+
+    <TextView
+        android:id="@+id/textPulsaBtn"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:paddingTop="10dp"
+        android:text="@string/torna_pulsar"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/canvi_Passw"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/idTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_name"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+    <Button
+        android:id="@+id/confirma"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_rectangle_rounded"
+        android:text="@string/confirmar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPulsaBtn" />
+
+    <Button
+        android:id="@+id/actualitza"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/button_rectangle_rounded"
+        android:paddingEnd="10dp"
+        android:text="@string/update"
+        app:layout_constraintBottom_toTopOf="@+id/elimina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/elimina"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/button_rectangle"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Productes"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="12dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rectangle"
+        android:text="@string/productes_perruqueria"
+        app:layout_constraintBottom_toTopOf="@+id/actualitza"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_Productes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTextView"
+        app:layout_constraintVertical_bias="0.171"
+        app:srcCompat="@drawable/img_logo" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/button_rectangle_rounded"
+        android:onClick="logOut"
+        android:text="@string/log_out"
+        android:textColor="#070707"
+        android:textColorLink="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

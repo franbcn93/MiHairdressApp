@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/new_passwd"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:background="#D1EFEE"
+    android:orientation="vertical"
+    android:textAlignment="center"
     tools:context=".LogInActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="159dp"
-        app:srcCompat="@drawable/logo" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="48dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/password"
@@ -56,23 +30,6 @@
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
-        android:id="@+id/login"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/password"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="48dp"
-        android:background="@drawable/button_rounded"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <Button
         android:id="@+id/register"
         android:layout_width="320dp"
         android:layout_height="40dp"
@@ -83,10 +40,40 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="44dp"
         android:background="@drawable/button_rounded_border"
-        android:text="Registre"
+        android:text="Registrat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="48dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="159dp"
+        app:srcCompat="@drawable/logo" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"
@@ -101,13 +88,42 @@
         android:layout_marginEnd="89dp"
         android:layout_marginBottom="210dp" />
 
+    <TextView
+        android:id="@+id/txt_newPassw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="170dp"
+        android:autoLink="web"
+        android:linksClickable="false"
+        android:text="He olvidat la meva contrasenya"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18dp" />
+
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        />
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/login"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/button_rounded"
+        android:text="Iniciar sessió"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+</LinearLayout>
